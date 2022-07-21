@@ -1,0 +1,10 @@
+.nose {
+    width: 16%;
+    height: 10%; 
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -40%) scale(-1) rotate(360deg);
+    border-radius: 100% / 50% 0% 100% 120%;
+    border-left: .1vmin solid #000;
+    
+  }

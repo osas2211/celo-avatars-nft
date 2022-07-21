@@ -1,0 +1,72 @@
+/* <!-- HTML !-->
+<button class="button" role="button">Button 52</button> */
+
+/* CSS */
+
+.download_share{
+    position: relative;
+    order: 2;
+    margin: 2rem;
+    /* top: 10%;
+    right: 3%; */
+}
+
+.download_share h3{
+    font-family: 200;
+    margin-bottom: 1.5rem;
+}
+
+.download_share div{
+    margin-bottom: 1.5rem;
+}
+.button {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 2vmin 3vmin;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  color: black;
+}
+
+.button:after {
+  content: "";
+  background-color: #ffe54c;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.button:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (max-width: 1100px) {
+    .download_share{
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: 2rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+  .button {
+    padding: 13px 50px 13px;
+  }
+
+  .download_share{
+    margin: 0rem 2rem 2rem 2rem;
+  }
+}

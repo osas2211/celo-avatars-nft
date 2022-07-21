@@ -1,0 +1,22 @@
+.bottom, .top{
+    top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    height: 6%;
+    width: 40%;
+    z-index: 1;
+    border-radius: 100%;
+    border: 1px solid rgb(145, 143, 143);
+}
+
+.top{
+    top: 0%;
+    left: 50%;
+    height: 7%;
+    width: 30%;
+    z-index: 100;
+    border-radius: 100%/ 30% 30% 30% 30%;
+    background-color: white;
+    z-index: 3;
+}

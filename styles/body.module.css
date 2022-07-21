@@ -1,0 +1,97 @@
+.body{
+    height: 30%;
+    width: 40%;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--default-shirt);
+    z-index: -2;
+    border-radius: 120% / 10% 10% 0% 0%;
+}
+
+.shoulder{
+    height: 25%;
+    width: 39%;
+    top: 3%;
+    left: -36%;
+    background-color: var(--default-shirt);
+    border-top-left-radius: 120%;
+    z-index: 2;
+}
+
+.shoulder + .shoulder{
+    left: auto;
+    right: -37%;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 120%;
+}
+
+.muscle{
+    height: 45%;
+    width: 30%;
+    top: 15%;
+    left: -38%;
+    background-color: var(--default-skin);
+    border-radius: 100% / 30% 30% 40% 60%;
+    transform: rotate(12deg);
+}
+
+.muscle + .muscle{
+    left: auto;
+    right: -38%;
+    transform: rotate(-12deg);
+}
+
+.arm {
+    height: 50%;
+    width: 30%;
+    top: 46%;
+    left: -38%;
+    background-color: var(--default-skin);
+    border-radius: 100% / 30% 30% 30% 30%;
+    clip-path: polygon(0 0, 100% 0, 65% 100%, 0 100%);
+    transform: rotate(-8deg);
+}
+
+.arm + .arm{
+    left: auto;
+    right: -38%;
+    transform: rotate(8deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 35% 100%);
+}
+
+
+.fingers{
+    height: 25%;
+    width: 15%;
+    top: 90%;
+    left: -30%;
+    background-color: var(--default-skin);
+    z-index: 2;
+    transform: rotate(-8deg);
+    border-radius:100% / 0% 0% 60% 60% ;
+}
+
+.fingers::after{
+    position: absolute;
+    content: "";
+    height: 50%;
+    width: 50%;
+    top: 15%;
+    left: 90%;
+    background-color: inherit;
+    transform: rotate(-10deg);
+    border-radius: 60%;
+}
+
+.fingers + .fingers{
+    left: auto;
+    right: -30%;
+    transform: rotate(8deg);
+}
+
+.fingers + .fingers::after{
+    left: auto;
+    right: 90%;
+    transform: rotate(10deg);
+}

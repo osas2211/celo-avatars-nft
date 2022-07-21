@@ -1,0 +1,16 @@
+.ear{
+    height: 30%;
+    width: 25%;
+    background-color: var(--default-skin);
+    left: -15%;
+    top: 35%;
+    border-radius: 100% / 50% 120% 50% 120%;
+    z-index: -100;
+    border-left: .1vmin solid rgba(0, 0, 0, 0.637);
+}
+
+.ear + .ear{
+    left: auto;
+    right: -15%;
+    transform: scale(-1) rotate(15deg);
+}

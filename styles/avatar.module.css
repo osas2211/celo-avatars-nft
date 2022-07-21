@@ -1,0 +1,8 @@
+.avatar{
+    width: 40%;
+    height: 90%;
+    /* border: 1px solid black; */
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}

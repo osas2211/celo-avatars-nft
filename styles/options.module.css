@@ -1,0 +1,69 @@
+.options{
+    padding: 0rem 1rem;
+}
+
+.options h3{
+    margin-bottom: 1rem;
+}
+
+.group{
+    display: flex;
+    justify-content: space-between;
+    width: 26%;
+    margin-bottom: 1rem;
+}
+
+.select_ {
+    /* Reset Select */
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: #fff;
+    background-color: #000;
+    background-image: none;
+    cursor: pointer;
+}
+/* Remove IE arrow */
+.select_::-ms-expand {
+    display: none;
+}
+/* Custom Select wrapper */
+.select {
+    position: relative;
+    display: flex;
+    width: 25vmin;
+    height: 5vmin;
+    border-radius: .25em;
+    overflow: hidden;
+    margin-right: 2rem;
+}
+/* Arrow */
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1vmin;
+    height: 100%;
+    background-color: #34495e;
+    transition: .25s all ease;
+    pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+    color: #f39c12;
+}
+
+@media (max-width: 1024px) {
+    .group{
+        width: 100%;
+    }
+
+    .options{
+        padding: 4rem 3rem;
+    }
+}

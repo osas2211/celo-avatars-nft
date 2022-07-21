@@ -1,0 +1,23 @@
+.neck{
+    height: 8%;
+    width: 12%;
+    background-color: var(--default-skin);
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom: .4vmin solid rgba(0, 0, 0, 0.486);
+}
+
+.neck::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    border-radius: 120%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.185);
+}

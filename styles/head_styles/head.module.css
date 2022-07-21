@@ -1,0 +1,16 @@
+.head{
+    background-color: var(--default-skin);
+    /* height: 18%;
+    width: 30%; */
+    /* height: 50%;
+    width: 80%; */
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    /* border-radius: 100% / 50% 50% 120% 120%; */
+    border: .3vmin solid rgba(0, 0, 0, 0.616);
+}
+
+.hair{
+    border-top: 2vmin solid var(--default-hair);
+}

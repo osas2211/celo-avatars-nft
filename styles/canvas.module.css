@@ -1,0 +1,42 @@
+.canvas{
+    position: relative;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-20%, -45%); */
+    height: 80vmin;
+    width: 80vmin;
+    margin: 0 2rem;
+    box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.11),
+    -12px -12px 24px 0 rgba(255, 255, 255, 0.596);
+    border-radius: 5%;
+    order: 1;
+    /* background-color: rgb(242, 246, 247);
+    background-image: repeating-linear-gradient(transparent 0 4.5%, #0002 5%),
+        repeating-linear-gradient(to left, #0000 0 4.5%, #0002 5%); */
+}
+
+.canvas:hover{
+    box-shadow: inset 12px 12px 24px 0 rgba(0, 0, 0, 0.11),
+    inset -12px -12px 24px 0 rgba(255, 255, 255, 0.596);
+    border-radius: 5%;
+}
+
+.canvas div{
+    position: absolute;
+}
+
+@media (max-width: 1090px){
+    .canvas{
+        align-self: center;
+        justify-self: center;
+        order: 0;
+        margin: 0;
+        
+    }
+}
+@media (max-width: 768px) {
+    .canvas{
+        height: 90vmin;
+        width: 90vmin;
+    }
+}

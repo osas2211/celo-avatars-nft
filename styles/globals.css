@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600&display=swap');
+
+:root{
+  --default-skin: #fca;
+  --default-shirt: #e9c629;
+  --default-eye-color: rgb(89, 180, 130);
+  --default-hair: #0000009d;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Exo 2', sans-serif;
+  background-color: #f3f3f3;
+}
+
+header{
+  font-family: 'Macondo', cursive;
+  padding: 1rem 2rem;
+}
+
+.playground{
+  display: flex;
+  margin: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cover {
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,
+  #35D07F 0%, #2aa666 47.7%, #207d4c 92.3% );
+  border-radius: .5em;
+}
+.vh-80 {
+  height: 80vh!important;
+}

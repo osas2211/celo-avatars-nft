@@ -1,0 +1,13 @@
+.mouth{
+    height: 13%;
+    width: 35%;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    /* border-bottom: .1vmin solid #000; */
+    /* border-radius: 20% / 40% 40% 130% 130%; */
+}
+
+.smile{
+    border-radius: 100% / 40% 40% 130% 130%;
+}
