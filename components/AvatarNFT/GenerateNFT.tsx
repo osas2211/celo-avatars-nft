@@ -89,7 +89,7 @@ export const GenerateNFT:React.FC<Props> = ({ celoAvatarContract }) => {
 
 	return (
 		<div className={styles.download_share}>
-			<h3>Download</h3>
+			<h3>Generate</h3>
 			<div>
 				<button
 					className={styles.button}
