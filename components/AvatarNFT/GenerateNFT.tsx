@@ -91,10 +91,9 @@ export const GenerateNFT: React.FC<Props> = ({
 				ipfsImage: ipfsImage,
 				attributes,
 			}
-			console.log(meta);
-			// createNFT(meta)
+			createNFT(meta)
 			setIpfs("")
-			// setAttributes({})
+			setAttributes({})
 		}
 	}, [ipfsImage])
 
