@@ -88,6 +88,7 @@ export const GenerateNFT: React.FC<Props> = ({
 		// generated data from avatar
 		configData = { ...body, ...head, ...clothes } // MAKES MORE SENSE
 		const parsedValues = valuesParser(configData)
+
 		setAttributes(parsedValues)
 	}
 

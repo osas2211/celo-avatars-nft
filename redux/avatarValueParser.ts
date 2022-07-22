@@ -27,6 +27,8 @@ export const valuesParser = (configData: configI) => {
 			: configData["bodySize"] === "32%"
 			? "small"
 			: "big"
+	parsedValue["skinColor"] =
+		configData["skinColor"] === "#fca" ? "white" : "dark"
 	parsedValue["eyeColor"] =
 		configData["eyeColor"] === "#00916E"
 			? "green"
@@ -60,7 +62,7 @@ export const valuesParser = (configData: configI) => {
 			: "blue"
 	parsedValue["shirtSleeve"] = configData["shirtSleeve"]
 	parsedValue["trouserColor"] =
-		configData["trouserColor"] === "#000"
+		configData["trouserColor"] === "rgba(32, 30, 31, 1)"
 			? "dark"
 			: configData["trouserColor"] === "#fff"
 			? "white"
