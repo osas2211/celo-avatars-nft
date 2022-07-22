@@ -30,7 +30,7 @@ const Home: NextPage = () => {
 	// Tweaking of State is via css values
 
 	useEffect(() => {
-		if (address && celoAvatarContract) {
+		if (address && celoAvatarContract.methods) {
 			setAddr(address)
 		} else {
 			setAddr("")

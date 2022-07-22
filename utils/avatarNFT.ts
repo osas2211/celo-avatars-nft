@@ -3,7 +3,6 @@ import axios from "axios";
 import { Contract } from "web3-eth-contract"
 import celoAvatarContractAddress from "./contracts/CeloAvatars-address.json";
 import { BigNumber } from "ethers";
-import { nonWhiteSpace } from "html2canvas/dist/types/css/syntax/parser";
 
 export interface meta {
     index: number,
@@ -36,31 +35,27 @@ export const createNft = async (
     performActions: Function,
     params: { metadata: object }
 ) => {
-    //@ts-ignore
-    await performActions(async (kit) => {
-        const { metadata } = params;
-        const { defaultAccount } = kit;
-
-        // convert NFT metadata to JSON format
-        const data = JSON.stringify(metadata);
-
-        try {
+    try {
+        //@ts-ignore
+        await performActions(async (kit) => {
+            const { metadata } = params;
+            const { defaultAccount } = kit;
+            // convert NFT metadata to JSON format
+            const data = JSON.stringify(metadata);
             // save NFT metadata to IPFS
             const added = await client.add(data);
-
             // IPFS url for uploaded metadata
             const url = `https://ipfs.infura.io/ipfs/${added.path}`;
-
             // mint the NFT and save the IPFS url to the blockchain
-            let transaction = await celoAvatarContract.methods
+            await celoAvatarContract.methods
                 .safeMint(defaultAccount, url)
                 .send({ from: defaultAccount });
-
-            return transaction;
-        } catch (error) {
-            console.log("Error uploading file: ", error);
-        }
-    });
+        });
+        return true;
+    } catch (error) {
+        return false;
+        console.log("Error uploading file: ", error);
+    }
 };
 
 export const approve = async (
@@ -77,19 +72,16 @@ export const approve = async (
             await IECR20Contract.methods
                 .approve(celoAvatarContractAddress.cAVT, mintingFee)
                 .send({ from: defaultAccount });
-            return true;
         });
+        return true;
     } catch (e) {
-        return false;
         console.log({ e });
+        return false;
     }
 };
 
 export const getMintingFee = async (celoAvatarContract: Contract) => {
     try {
-        if (!celoAvatarContract.methods) {
-            return null;
-        }
         const mintFee = await celoAvatarContract.methods.getMintingFee().call();
         return mintFee
     } catch (e) {
@@ -100,9 +92,6 @@ export const getMintingFee = async (celoAvatarContract: Contract) => {
 // get the no of minted nfts
 export const getTotalMintedNFTs = async (celoAvatarContract: Contract) => {
     try {
-        if (!celoAvatarContract.methods) {
-            return null;
-        }
         const totalSupply = await celoAvatarContract.methods.totalSupply().call();
         return totalSupply;
     } catch (e) {

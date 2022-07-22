@@ -8,14 +8,12 @@ import { useCeloAvatarContract } from "../utils/hooks"
 import { getUserNfts } from "../utils/avatarNFT"
 import UserNftCard from "../components/AvatarNFT/UserNftCard"
 import Loader from "./loader"
-import { log } from "console"
 
 const Nfts = () => {
 	const [loading, setLoading] = useState(false)
 	const { address } = useContractKit()
 	const [userNfts, setUserNfts] = useState<[]>([])
 	const celoAvatarContract = useCeloAvatarContract()
-	const nfts = useSelector((state: RootState) => state.nfts)
 	const getUserAssets = useCallback(async () => {
 		try {
 			setLoading(true)
@@ -32,7 +30,6 @@ const Nfts = () => {
 	useEffect(() => {
 		getUserAssets()
 	}, [getUserAssets])
-	console.log(userNfts)
 
 	return (
 		<div>

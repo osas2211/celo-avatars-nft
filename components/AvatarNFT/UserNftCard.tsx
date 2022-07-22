@@ -17,7 +17,6 @@ const UserNftCard: React.FC<props> = ({ nft }) => {
 			const res = await axios.get(nft.ipfsImage)
 			const base64Url = await res.data
 			setImgUrl(() => base64Url)
-			console.log(base64Url)
 		} catch (error) {
 			console.log(error)
 		}

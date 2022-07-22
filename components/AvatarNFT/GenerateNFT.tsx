@@ -25,30 +25,21 @@ export const GenerateNFT:React.FC<Props> = ({ celoAvatarContract }) => {
 	const [attributes, setAttributes] = useState({});
 
 	const createNFT = async (metadata : object) => {
-
-		let approved = false;
+		//get mint fee
+		const mintFee = await getMintingFee(celoAvatarContract);
 		// approve contract first
-		try {
-			// create an nft functionality
-			const mintFee = await getMintingFee(celoAvatarContract);
-			await approve(IERC20Contract, performActions, {mintFee}); 
-			approved = true;
-			toast(<NotificationSuccess text="Approval successful...."/>);
-		  } catch (error) {
-			approved = false;
-			console.log({ error });
-			toast(<NotificationError text="Please approve contract." />);
-		}
-
+		const approved = await approve(IERC20Contract, performActions, {mintFee}); 
 		if(approved){
-			try {
-				// create an nft functionality
-				await createNft(celoAvatarContract, performActions, {metadata}); 
+			toast(<NotificationSuccess text="Approval successful...."/>);
+			//Mint NFT
+			const success = await createNft(celoAvatarContract, performActions, {metadata}); 
+			if(success){
 				toast(<NotificationSuccess text="NFT created successfully...."/>);
-			  } catch (error) {
-				console.log({ error });
+			}else {
 				toast(<NotificationError text="Failed to create an NFT." />);
-			  } 
+			}
+		}else{
+			toast(<NotificationError text="Please approve contract." />);
 		}
 	}
 
