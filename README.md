@@ -1,5 +1,5 @@
 ## CELO AVATAR NFTS
-On this NFT DApp that you can create Avatar NFTs, and uploads them to IPFS, and also allows you to share the cool celo avatar nfts you created with your friends.
+On this NFT DApp that you can create Avatar NFTs, and uploads them to IPFS, and you can also share the cool celo avatar nfts you created with your friends.
 
 This DApp utilises CSS for the creation of the avatar and it's a  It also uses react-redux for the sharing of state for each file. 
 
@@ -82,7 +82,7 @@ npx hardhat test
 - Create a key called ACCOUNTKEY and paste in your private key. e.g
 
 ```js
-ACCONTKEY = "...";
+ACCOUNTKEY = "...";
 ```
 You can find more details about the whole process in the Dacade [NFT Contract Development with Hardhat](https://hackmd.io/exuZTH2hTqKytn2vxgDmcg) learning module. It will also show you how to get testnet tokens for your account so you can deploy your smart contract in the next step.
 
