@@ -89,5 +89,5 @@ You can find more details about the whole process in the Dacade [NFT Contract De
 ### 3.5 Deploy the smart contract to the Celo testnet Aljafores
 
 ```bash
-npx hardhat run --network alfajores scripts/deploy-NFT.js
+npx hardhat run --network alfajores scripts/deploy.js
 ```
