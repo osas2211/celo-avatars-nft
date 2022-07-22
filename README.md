@@ -9,7 +9,7 @@ The contract abi and address can be found in the ./utils/contract folder.
 All components are in the ./components folder.
 The main page is in the pages folder.
 
-Note: Due to the celo Contractkit() requiring a react version of 17.0.2, I couldn't deploy successfully to vercel as deployment was an issue with 17.0.2 React [issue](https://github.com/microsoft/TypeScript/issues/39391) and this issue was fixed in React version 18+. So I had to deploy with netlify.
+Note: Due to the celo Contractkit() requiring a react version of 17.0.2, I couldn't deploy successfully to vercel as deployment was an issue in 17.0.2 React [link to issue](https://github.com/microsoft/TypeScript/issues/39391) and this issue was fixed in React version 18+. So I had to deploy with netlify.
 
 ## 1. Tech Stack
 This boilerplate uses the following tech stack:
