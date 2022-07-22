@@ -7,7 +7,7 @@ import { useSelector } from "react-redux"
 import { useCeloAvatarContract } from "../utils/hooks"
 import { getUserNfts } from "../utils/avatarNFT"
 import UserNftCard from "../components/AvatarNFT/UserNftCard"
-import Loader from "./loader"
+import Loader from "../components/Loader"
 
 const Nfts = () => {
 	const [loading, setLoading] = useState(false)
