@@ -1,5 +1,5 @@
 ## CELO AVATAR NFTS
-On this NFT DApp that you can create Avatar NFTs, and uploads them to IPFS, and you can also share the cool celo avatar nfts you created with your friends.
+On this NFT DApp that you can create Avatar NFTs, and share the cool celo avatar nfts you created with your friends.
 
 This DApp utilises CSS for the creation of the avatar and it's a  It also uses react-redux for the sharing of state for each file. 
 
@@ -14,6 +14,7 @@ This boilerplate uses the following tech stack:
 - [use-Contractkit](contractkit
 ) - A frontend library for interacting with the Celo blockchain.
 - [Hardhat](https://hardhat.org/) - A tool for writing and deploying smart contracts.
+- [IPFS](https://docs.ipfs.io/) - A decentralized file system.
 
 
 ## 2. Getting Started
