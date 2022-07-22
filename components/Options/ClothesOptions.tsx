@@ -46,7 +46,7 @@ export const ClothesOptions = () => {
 		})
 		dispatch({ type: toggleHatColor.type as any | string, payload: hatColor })
 		dispatch({ type: toggleHat.type as any | string, payload: hat })
-	}, [trouserLength, trouserColor, shirtColor, shirtSleeve, hatColor, hat])
+	}, [trouserLength, trouserColor, shirtColor, shirtSleeve, hatColor, hat, dispatch])
 
 	return (
 		<>

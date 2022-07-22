@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from "react-bootstrap";
+import Image from "next/image"
 
 interface Props {
   name: string,
@@ -19,7 +20,7 @@ const Cover:React.FC<Props> = ({ name, coverImg, connect }) => {
               className=" ratio ratio-1x1 mx-auto mb-2"
               style={{ maxWidth: "320px" }}
             >
-              <img src={coverImg} alt="" />
+              <Image src={coverImg} alt="" layout={"fill"}/>
             </div>
             <h1>{name}</h1>
             <p>Please connect your wallet to continue.</p>

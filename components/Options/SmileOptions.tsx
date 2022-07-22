@@ -14,7 +14,7 @@ export const SmileOptions = () => {
 
 	useEffect(() => {
 		dispatch({ type: toggleSmile.type as any | string, payload: smile })
-	}, [smile])
+	}, [smile, dispatch])
 	return (
 		<div>
 			<div>

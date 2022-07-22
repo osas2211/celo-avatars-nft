@@ -26,7 +26,7 @@ export const AvatarNFT: React.FC<Props> = ({ celoAvatarContract }) => {
 		if(!MintingFee) return;
 		//@ts-ignore
 		setMintingFee(MintingFee)
-	}, [])
+	}, [celoAvatarContract])
 
 	const getTotalMint = useCallback(async () => {
 		// get the number of minted cAVT tokens
@@ -34,7 +34,7 @@ export const AvatarNFT: React.FC<Props> = ({ celoAvatarContract }) => {
 		if(!totalMinted) return;
 		//@ts-ignore
 		setTotalMint(totalMinted)
-	}, [])
+	}, [celoAvatarContract])
 
 	useEffect(() => {
 		try {

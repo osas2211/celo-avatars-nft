@@ -15,7 +15,7 @@ export const EyeOptions = () => {
 	useEffect(() => {
 		dispatch({ type: toggleEyeColor.type as any | string, payload: color })
 		dispatch({ type: toggleEyeShape.type as any | string, payload: shape })
-	}, [color, shape])
+	}, [color, shape, dispatch])
 	return (
 		<div className={styles.group}>
 			<div>

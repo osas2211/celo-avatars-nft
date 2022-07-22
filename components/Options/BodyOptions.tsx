@@ -22,7 +22,7 @@ export const BodyOptions = () => {
 		dispatch({ type: toggleSkinColor.type as any | string, payload: color })
 		dispatch({ type: toggleBodySize.type as any | string, payload: size })
 		dispatch({ type: toggleBodyShape.type as any | string, payload: shape })
-	}, [size, color, shape])
+	}, [size, color, shape, dispatch])
 	return (
 		<>
 			<div className={styles.group}>

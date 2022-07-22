@@ -95,7 +95,7 @@ export const GenerateNFT: React.FC<Props> = ({
 			setIpfs("")
 			setAttributes({})
 		}
-	}, [ipfsImage])
+	}, [ipfsImage, createNFT, attributes])
 
 	return (
 		<div className={styles.download_share}>
