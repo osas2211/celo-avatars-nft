@@ -13,7 +13,6 @@ import {
 	uploadToIpfs,
 	approve,
 	getMintingFee,
-	getUserNfts,
 } from "../../utils/avatarNFT"
 import {
 	NotificationSuccess,
@@ -39,7 +38,7 @@ export const GenerateNFT: React.FC<Props> = ({
 	const [ipfsImage, setIpfs] = useState("")
 	const [attributes, setAttributes] = useState({})
 	const [load, setLoad] = useState(false)
-
+	const [updatedMint, setUpdatedMint] = useState(totalMinted);
 
 	const createNFT = useCallback(async (metadata : object) => {
 		//get mint fee
@@ -51,6 +50,7 @@ export const GenerateNFT: React.FC<Props> = ({
 			//Mint NFT
 			const success = await createNft(celoAvatarContract, performActions, {metadata}); 
 			if(success){
+				setUpdatedMint(Number(updatedMint) + 1);
 				toast(<NotificationSuccess text="NFT created successfully...."/>);
 			}else {
 				toast(<NotificationError text="Failed to create an NFT." />);
@@ -59,6 +59,7 @@ export const GenerateNFT: React.FC<Props> = ({
 			toast(<NotificationError text="Please approve contract." />);
 		}
 	}, [celoAvatarContract, IERC20Contract, performActions]);
+
 
 	const { body, head, clothes } = useSelector((state: RootState) => state)
 	let configData: configI
@@ -102,8 +103,8 @@ export const GenerateNFT: React.FC<Props> = ({
 		<div className={styles.download_share}>
 			<div className={"fw-bold h6"}>
 				<p>
-					cAVT Total Supply:{" "}
-					<span style={{ fontSize: "1.3rem" }}>{totalMinted}</span>
+					cAVT Total Mint Supply:{" "}
+					<span style={{ fontSize: "1.3rem" }}>{updatedMint > Number(totalMinted)? updatedMint : totalMinted}</span>
 				</p>
 				<p>
 					Minting FEE:{" "}
