@@ -2,12 +2,29 @@ import React from "react"
 import { Card, Col, Badge, Stack, Row } from "react-bootstrap"
 import { meta } from "../../utils/avatarNFT"
 import Image from "next/image"
+import { useEffect, useState } from "react"
+import axios from "axios"
+import loadImg from "../../images/load.png"
 
 interface props {
 	nft: meta
 }
 
 const UserNftCard: React.FC<props> = ({ nft }) => {
+	const [imgUrl, setImgUrl] = useState(() => "")
+	const getImg = async () => {
+		try {
+			const res = await axios.get(nft.ipfsImage)
+			const base64Url = await res.data
+			setImgUrl(() => base64Url)
+			console.log(base64Url)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+	useEffect(() => {
+		getImg()
+	})
 	return (
 		<Col key={nft.index}>
 			<Card className=" h-100">
@@ -21,7 +38,7 @@ const UserNftCard: React.FC<props> = ({ nft }) => {
 
 				<div className=" ratio ratio-4x3">
 					<Image
-						src={nft.ipfsImage}
+						src={imgUrl ? imgUrl : loadImg}
 						alt={"CeloAvatar"}
 						layout={"fill"}
 						style={{ objectFit: "cover" }}
