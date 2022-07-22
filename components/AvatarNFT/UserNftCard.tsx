@@ -4,7 +4,7 @@ import { meta } from "../../utils/avatarNFT"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import loadImg from "../../images/load.png"
+import loadImg from "../assets/img/load.png"
 
 interface props {
 	nft: meta

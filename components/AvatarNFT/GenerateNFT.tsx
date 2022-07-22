@@ -1,5 +1,4 @@
 import React, { useRef, MutableRefObject, useState, useEffect } from "react"
-import { Button } from "react-bootstrap";
 import { toast } from "react-toastify";
 import styles from "../../styles/btn.module.css"
 import domtoimage from "dom-to-image"
@@ -20,19 +19,20 @@ interface Props {
 
 export const GenerateNFT:React.FC<Props> = ({ celoAvatarContract }) => {
 
-	const {address, performActions} = useContractKit();
+	const { performActions} = useContractKit();
 	const IERC20Contract = useIERC20Contract();
 	const [ipfsImage, setIpfs] = useState("");
 	const [attributes, setAttributes] = useState({});
 
 	const createNFT = async (metadata : object) => {
 
-		let approved = true;
+		let approved = false;
 		// approve contract first
 		try {
 			// create an nft functionality
 			const mintFee = await getMintingFee(celoAvatarContract);
 			await approve(IERC20Contract, performActions, {mintFee}); 
+			approved = true;
 			toast(<NotificationSuccess text="Approval successful...."/>);
 		  } catch (error) {
 			approved = false;

@@ -80,6 +80,7 @@ export const approve = async (
             return true;
         });
     } catch (e) {
+        return false;
         console.log({ e });
     }
 };
