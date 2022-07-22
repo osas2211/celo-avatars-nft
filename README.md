@@ -1,5 +1,5 @@
 ## CELO AVATAR NFTS
-This is an NFT DApp that allows you to create Avatar NFTs, and uploads them to IPFS, and also allows you to share the cool celo avatar nfts you create with your friends.
+On this NFT DApp that you can create Avatar NFTs, and uploads them to IPFS, and also allows you to share the cool celo avatar nfts you created with your friends.
 
 This DApp utilises CSS for the creation of the avatar and it's a  It also uses react-redux for the sharing of state for each file. 
 
