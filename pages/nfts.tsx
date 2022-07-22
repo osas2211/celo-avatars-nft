@@ -36,18 +36,18 @@ const Nfts = () => {
 
 	return (
 		<div>
-			<div>
+			<div className="mb-5">
 				<div className="link-btn ms-3 mt-3 text-center">
 					<Link href={"/"}>Home</Link>
 				</div>
 				<header className="nft-header">Your NFTs</header>
 				{!loading ? (
-					<div className="container">
+					<div className="container-fluid">
 						<div className="row justify-content-center align-items-center gap-2">
 							{userNfts.length !== 0 ? (
 								userNfts.map((nft, key) => {
 									return (
-										<div className="col-md-4 col-8" key={key}>
+										<div className="col-md-3 col-10" key={key}>
 											<UserNftCard nft={nft} />
 										</div>
 									)

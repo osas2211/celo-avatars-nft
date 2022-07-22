@@ -10,7 +10,6 @@ import { Nav } from "react-bootstrap"
 import { AvatarNFT } from "../components/AvatarNFT"
 import Link from "next/link"
 
-
 const Home: NextPage = () => {
 	/*
     address : fetch the connected wallet address
@@ -42,13 +41,13 @@ const Home: NextPage = () => {
 			<Notification />
 			{addr ? (
 				<>
-					<Nav>
+					<Nav className="justify-content-between d-flex container-fluid align-items-center">
 						<header>
 							<h2>
 								Celo <span style={{ color: "#FCDC4D" }}>Avatar</span> NFTs
 							</h2>
 						</header>
-						<Nav.Item className="justify-content-end pt-3 pb-5">
+						<Nav.Item className="">
 							{/*display user wallet*/}
 							<Wallet
 								address={address}
@@ -57,10 +56,6 @@ const Home: NextPage = () => {
 								destroy={destroy}
 							/>
 						</Nav.Item>
-
-						<div className="link-btn ms-3 my-3 justify-content-center">
-							<Link href={"/nfts"}>View NFTs</Link>{" "}
-						</div>
 					</Nav>
 					<AvatarNFT celoAvatarContract={celoAvatarContract} />
 				</>
