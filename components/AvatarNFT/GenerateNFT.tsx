@@ -1,4 +1,4 @@
-import React, { useRef, MutableRefObject, useState, useEffect } from "react"
+import React, { useRef, MutableRefObject, useState, useEffect, useCallback } from "react"
 import { toast } from "react-toastify"
 import styles from "../../styles/btn.module.css"
 import domtoimage from "dom-to-image"
@@ -21,6 +21,7 @@ import {
 } from "../../components/UI/Notifications"
 import { useIERC20Contract } from "../../utils/hooks/useIERC20Contract"
 import Link from "next/link"
+import {  Spinner } from 'react-bootstrap';
 
 interface Props {
 	celoAvatarContract: Contract
@@ -40,7 +41,7 @@ export const GenerateNFT: React.FC<Props> = ({
 	const [load, setLoad] = useState(false)
 
 
-	const createNFT = async (metadata : object) => {
+	const createNFT = useCallback(async (metadata : object) => {
 		//get mint fee
 		const mintFee = await getMintingFee(celoAvatarContract);
 		// approve contract first
@@ -57,7 +58,7 @@ export const GenerateNFT: React.FC<Props> = ({
 		}else{
 			toast(<NotificationError text="Please approve contract." />);
 		}
-	}
+	}, [celoAvatarContract, IERC20Contract, performActions]);
 
 	const { body, head, clothes } = useSelector((state: RootState) => state)
 	let configData: configI
@@ -118,7 +119,7 @@ export const GenerateNFT: React.FC<Props> = ({
 					ref={downloadBtn}
 					onClick={onGenerate}
 				>
-					{load ? "Loading..." : "Generate Avatar"}
+					{load ? <> <span> Generating </span><Spinner animation="border" as="span" size="sm" role="status" aria-hidden="true" className="opacity-25"/> </> : "Generate Avatar"}
 				</button>
 			</div>
 			<div className="link-btn ms-4 my-3 justify-content-center fw-bold">

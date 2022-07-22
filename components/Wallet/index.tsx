@@ -1,8 +1,7 @@
 import React from 'react';
 import {Dropdown, Stack, Spinner} from 'react-bootstrap';
-import {formatBigNumber, truncateAddress} from '../../utils';
-import Identicon from '../UI/Identicon';
 import BigNumber from 'bignumber.js';
+import {formatBigNumber, truncateAddress} from '../../utils';
 
 interface Props {
     address: any,
@@ -16,7 +15,9 @@ const Wallet:React.FC<Props> = ({address, amount, symbol, destroy}) => {
         return <>
             <Dropdown>
                 <Dropdown.Toggle variant="light" id="dropdown-basic" className="d-flex align-items-center border rounded-pill py-1">
+                {amount ? (
                         <>{formatBigNumber(amount)} <span className="ms-1"> {symbol}</span></>
+                    ) : (<Spinner animation="border" size="sm" className="opacity-25"/>)}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu className="shadow-lg border-0" >
