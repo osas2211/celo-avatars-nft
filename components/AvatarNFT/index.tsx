@@ -8,15 +8,10 @@ import { Contract } from "web3-eth-contract"
 import { useCallback, useEffect, useState } from "react"
 import { useContractKit } from "@celo-tools/use-contractkit"
 import Loader from "../UI/Loader"
-import { BigNumber } from "ethers"
 import {
 	getMintingFee,
 	getTotalMintedNFTs,
-	getUserNfts,
 } from "../../utils/avatarNFT"
-import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "../../redux/store"
-import { fetchNfts } from "../../redux/slices/nftsSlice"
 
 interface Props {
 	celoAvatarContract: Contract
@@ -31,6 +26,8 @@ export const AvatarNFT: React.FC<Props> = ({ celoAvatarContract }) => {
 	const getMintFee = useCallback(async () => {
 		// get the minting fee
 		const MintingFee = await getMintingFee(celoAvatarContract)
+		if(!MintingFee) return;
+		console.log(MintingFee);
 		//@ts-ignore
 		setMintingFee(MintingFee)
 	}, [])
@@ -38,6 +35,8 @@ export const AvatarNFT: React.FC<Props> = ({ celoAvatarContract }) => {
 	const getTotalMint = useCallback(async () => {
 		// get the number of minted cAVT tokens
 		const totalMinted = await getTotalMintedNFTs(celoAvatarContract)
+		if(!totalMinted) return;
+		console.log(totalMinted);
 		//@ts-ignore
 		setTotalMint(totalMinted)
 	}, [])

@@ -3,6 +3,7 @@ import axios from "axios";
 import { Contract } from "web3-eth-contract"
 import celoAvatarContractAddress from "./contracts/CeloAvatars-address.json";
 import { BigNumber } from "ethers";
+import { nonWhiteSpace } from "html2canvas/dist/types/css/syntax/parser";
 
 export interface meta {
     index: number,
@@ -85,8 +86,11 @@ export const approve = async (
 
 export const getMintingFee = async (celoAvatarContract: Contract) => {
     try {
+        if (!celoAvatarContract.methods) {
+            return null;
+        }
         const mintFee = await celoAvatarContract.methods.getMintingFee().call();
-        return mintFee;
+        return mintFee
     } catch (e) {
         console.log({ e });
     }
@@ -95,8 +99,11 @@ export const getMintingFee = async (celoAvatarContract: Contract) => {
 // get the no of minted nfts
 export const getTotalMintedNFTs = async (celoAvatarContract: Contract) => {
     try {
-        const mintFee = await celoAvatarContract.methods.totalSupply().call();
-        return mintFee;
+        if (!celoAvatarContract.methods) {
+            return null;
+        }
+        const totalSupply = await celoAvatarContract.methods.totalSupply().call();
+        return totalSupply;
     } catch (e) {
         console.log({ e });
     }

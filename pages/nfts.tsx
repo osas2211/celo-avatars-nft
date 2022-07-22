@@ -21,9 +21,8 @@ const Nfts = () => {
 			// fetch all nfts from the smart contract
 			//@ts-ignore
 			const allNfts: [] = await getUserNfts(celoAvatarContract, { address })
-			console.log(allNfts)
-			// if (!allNfts) return
-			// setUserNfts(allNfts)
+			if (!allNfts) return
+			setUserNfts(allNfts)
 			setLoading(false)
 
 		} catch (error) {
