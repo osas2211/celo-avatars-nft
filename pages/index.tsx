@@ -9,7 +9,7 @@ import coverImg from "../components/assets/img/celo-logo.png"
 import { Nav } from "react-bootstrap"
 import { AvatarNFT } from "../components/AvatarNFT"
 import Link from "next/link"
-import Loader from "../components/Loader"
+
 
 const Home: NextPage = () => {
 	/*

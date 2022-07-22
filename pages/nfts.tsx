@@ -7,6 +7,7 @@ import { useSelector } from "react-redux"
 import { useCeloAvatarContract } from "../utils/hooks"
 import { getUserNfts } from "../utils/avatarNFT"
 import UserNftCard from "../components/AvatarNFT/UserNftCard"
+import Loader from "./loader"
 
 const Nfts = () => {
 	const [loading, setLoading] = useState(false)
@@ -20,8 +21,11 @@ const Nfts = () => {
 			// fetch all nfts from the smart contract
 			//@ts-ignore
 			const allNfts: [] = await getUserNfts(celoAvatarContract, { address })
-			if (!allNfts) return
-			setUserNfts(allNfts)
+			console.log(allNfts)
+			// if (!allNfts) return
+			// setUserNfts(allNfts)
+			setLoading(false)
+
 		} catch (error) {
 			console.log({ error })
 		}
@@ -29,7 +33,8 @@ const Nfts = () => {
 	useEffect(() => {
 		getUserAssets()
 	}, [getUserAssets])
-	console.log(userNfts)
+
+
 
 	return (
 		<div>
@@ -38,7 +43,8 @@ const Nfts = () => {
 					<Link href={"/"}>Home</Link>
 				</div>
 				<header className="nft-header">Your NFTs</header>
-				<div className="container">
+				{!loading? (
+					<div className="container">
 					<div className="row justify-content-center align-items-center gap-2">
 						{userNfts.length !== 0 ? (
 							userNfts.map((nft, key) => {
@@ -57,6 +63,11 @@ const Nfts = () => {
 						)}
 					</div>
 				</div>
+
+				) : (
+					<Loader />
+				)}
+				
 			</div>
 		</div>
 	)

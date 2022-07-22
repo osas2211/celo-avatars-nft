@@ -9,7 +9,7 @@ import {useContractKit} from "@celo-tools/use-contractkit"
 import { valuesParser } from "../../redux/avatarValueParser"
 import { configI } from "../../redux/avatarValueParser"
 import { Contract } from "web3-eth-contract"
-import { createNft, uploadToIpfs, approve, getMintingFee } from "../../utils/avatarNFT"
+import { createNft, uploadToIpfs, approve, getMintingFee, getUserNfts } from "../../utils/avatarNFT"
 import { NotificationSuccess, NotificationError } from "../../components/UI/Notifications"
 import { useIERC20Contract } from "../../utils/hooks/useIERC20Contract";
 
@@ -20,7 +20,7 @@ interface Props {
 
 export const GenerateNFT:React.FC<Props> = ({ celoAvatarContract }) => {
 
-	const {performActions} = useContractKit();
+	const {address, performActions} = useContractKit();
 	const IERC20Contract = useIERC20Contract();
 	const [ipfsImage, setIpfs] = useState("");
 	const [attributes, setAttributes] = useState({});

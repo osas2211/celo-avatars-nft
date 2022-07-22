@@ -25,27 +25,9 @@ interface Props {
 export const AvatarNFT: React.FC<Props> = ({ celoAvatarContract }) => {
 	const [loading, setLoading] = useState(false)
 	const { address } = useContractKit()
-	const [userNfts, setUserNfts] = useState({})
 	const [mintingFee, setMintingFee] = useState(null)
 	const [totalMint, setTotalMint] = useState(null)
-	const dispatch = useDispatch()
-
-	const getUserAssets = useCallback(async () => {
-		try {
-			setLoading(true)
-			// fetch all nfts from the smart contract
-			//@ts-ignore
-			const allNfts = await getUserNfts(celoAvatarContract, { address })
-			if (!allNfts) return
-			setUserNfts(allNfts)
-			dispatch({ type: fetchNfts, payload: allNfts })
-		} catch (error) {
-			console.log({ error })
-		} finally {
-			setLoading(false)
-		}
-	}, [celoAvatarContract])
-
+	
 	const getMintFee = useCallback(async () => {
 		// get the minting fee
 		const MintingFee = await getMintingFee(celoAvatarContract)
@@ -63,14 +45,15 @@ export const AvatarNFT: React.FC<Props> = ({ celoAvatarContract }) => {
 	useEffect(() => {
 		try {
 			if (address && celoAvatarContract) {
-				getUserAssets()
+				setLoading(true);
 				getMintFee()
 				getTotalMint()
+				setLoading(false);
 			}
 		} catch (error) {
 			console.log({ error })
 		}
-	}, [celoAvatarContract, address, getUserAssets, getMintFee, getTotalMint])
+	}, [celoAvatarContract, address, getMintFee, getTotalMint])
 
 	return (
 		<>

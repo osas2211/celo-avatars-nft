@@ -23,6 +23,7 @@ const UserNftCard: React.FC<props> = ({ nft }) => {
 					<Image
 						src={nft.ipfsImage}
 						alt={"CeloAvatar"}
+						layout={"fill"}
 						style={{ objectFit: "cover" }}
 					/>
 				</div>
