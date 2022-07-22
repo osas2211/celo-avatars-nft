@@ -30,7 +30,7 @@ contract CeloAvatars is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     }
 
     //    mint an NFT
-    function safeMint(address to, string memory uri) public onlyOwner {
+    function safeMint(address to, string memory uri) public {
         require(
             mintFeeToken.transferFrom(msg.sender, owner(), mintFee),
             "Transfer failed."
