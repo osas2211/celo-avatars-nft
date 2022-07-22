@@ -1,42 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600&display=swap");
 
-:root{
-  --default-skin: #fca;
-  --default-shirt: #e9c629;
-  --default-eye-color: rgb(89, 180, 130);
-  --default-hair: #0000009d;
+:root {
+	--default-skin: #fca;
+	--default-shirt: #e9c629;
+	--default-eye-color: rgb(89, 180, 130);
+	--default-hair: #0000009d;
 }
 
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none !important;
+	color: #272107 !important;
 }
 
-body{
-  font-family: 'Exo 2', sans-serif;
-  background-color: #f3f3f3;
+.link-btn a {
+	padding: 0.5rem 0.5rem;
+	background-color: #e9c62931;
+	display: inline-block !important;
 }
 
-header{
-  font-family: 'Macondo', cursive;
-  padding: 1rem 2rem;
+.link-btn a:hover {
+	background-color: #e9c62983;
+	transition: 0.5s;
+}
+body {
+	font-family: "Exo 2", sans-serif;
+	background-color: #f3f3f3;
 }
 
-.playground{
-  display: flex;
-  margin: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
+header {
+	font-family: "Macondo", cursive;
+	padding: 1rem 2rem;
+}
+
+.playground {
+	display: flex;
+	margin: 2rem;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
 }
 
 .cover {
-  background-image: radial-gradient( circle farthest-corner at 10% 20%,
-  #35D07F 0%, #2aa666 47.7%, #207d4c 92.3% );
-  border-radius: .5em;
+	background-image: radial-gradient(
+		circle farthest-corner at 10% 20%,
+		#35d07f 0%,
+		#2aa666 47.7%,
+		#207d4c 92.3%
+	);
+	border-radius: 0.5em;
 }
 .vh-80 {
-  height: 80vh!important;
+	height: 80vh !important;
+}
+
+.nft-header {
+	font-size: 7vmin;
+	text-align: center;
+}
+
+.myLoader {
+	background-color: #e9c629;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 10vmin;
+	height: 10vmin;
+	border-radius: 100%;
 }
