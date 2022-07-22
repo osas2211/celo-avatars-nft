@@ -20,12 +20,12 @@ a {
 
 .link-btn a {
 	padding: 0.5rem 0.5rem;
-	background-color: #e9c62931;
+	background-color: #e9c62960;
 	display: inline-block !important;
 }
 
 .link-btn a:hover {
-	background-color: #e9c62983;
+	background-color: #e9c629d0;
 	transition: 0.5s;
 }
 body {
@@ -35,7 +35,8 @@ body {
 
 header {
 	font-family: "Macondo", cursive;
-	padding: 1rem 2rem;
+	padding: 1rem 1rem 0 2rem;
+	margin: 0;
 }
 
 .playground {
@@ -59,11 +60,6 @@ header {
 	height: 80vh !important;
 }
 
-.nft-header {
-	font-size: 7vmin;
-	text-align: center;
-}
-
 .myLoader {
 	background-color: #e9c629;
 	position: absolute;
@@ -73,4 +69,25 @@ header {
 	width: 10vmin;
 	height: 10vmin;
 	border-radius: 100%;
+}
+
+.nft-header {
+	font-size: 7vmin;
+	text-align: center;
+}
+
+.nft .nft-btn {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translateX(-50%) scale(0);
+	display: inline-block;
+	background-color: #e9c629;
+	padding: 0.8rem 1.5rem;
+	box-shadow: 2px 4px 10px #1411014d;
+	transition: 0.2s;
+}
+
+.nft:hover .nft-btn {
+	transform: translateX(-50%) scale(1);
 }

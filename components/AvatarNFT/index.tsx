@@ -8,10 +8,7 @@ import { Contract } from "web3-eth-contract"
 import { useCallback, useEffect, useState } from "react"
 import { useContractKit } from "@celo-tools/use-contractkit"
 import Loader from "../UI/Loader"
-import {
-	getMintingFee,
-	getTotalMintedNFTs,
-} from "../../utils/avatarNFT"
+import { getMintingFee, getTotalMintedNFTs } from "../../utils/avatarNFT"
 
 interface Props {
 	celoAvatarContract: Contract
@@ -20,9 +17,9 @@ interface Props {
 export const AvatarNFT: React.FC<Props> = ({ celoAvatarContract }) => {
 	const [loading, setLoading] = useState(false)
 	const { address } = useContractKit()
-	const [mintingFee, setMintingFee] = useState(null)
-	const [totalMint, setTotalMint] = useState(null)
-	
+	const [mintingFee, setMintingFee] = useState("")
+	const [totalMint, setTotalMint] = useState("")
+
 	const getMintFee = useCallback(async () => {
 		// get the minting fee
 		const MintingFee = await getMintingFee(celoAvatarContract)
@@ -41,9 +38,11 @@ export const AvatarNFT: React.FC<Props> = ({ celoAvatarContract }) => {
 
 	useEffect(() => {
 		try {
+			setLoading(true)
 			if (address && celoAvatarContract) {
 				getMintFee()
 				getTotalMint()
+				setLoading(false)
 			}
 		} catch (error) {
 			console.log({ error })
@@ -73,7 +72,11 @@ export const AvatarNFT: React.FC<Props> = ({ celoAvatarContract }) => {
 							<Avatar />
 						</motion.div>
 						<Options />
-						<GenerateNFT celoAvatarContract={celoAvatarContract} />
+						<GenerateNFT
+							celoAvatarContract={celoAvatarContract}
+							totalMinted={totalMint}
+							mintingFee={mintingFee}
+						/>
 					</div>
 				</>
 			) : (
