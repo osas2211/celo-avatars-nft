@@ -70,6 +70,10 @@ contract CeloAvatars is ERC721, ERC721URIStorage, Ownable {
         return mintFee;
     }
 
+    function getTotalSupply() public view returns (uint) {
+        return _tokenIdCounter.current();
+    }
+
     // The following functions are overrides required by Solidity.
 
 
