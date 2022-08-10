@@ -1,5 +1,5 @@
 ## CELO AVATAR NFTS
-[Demo Link](celo-avatars-nft.netlify.app)
+[Demo Link](https://celo-avatars-nft.netlify.app/)
 
 On this NFT DApp that you can create Avatar NFTs, and share the cool celo avatar nfts you created with your friends.
 
